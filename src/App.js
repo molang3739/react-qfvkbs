@@ -7,7 +7,7 @@ import { useTranslation, initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      'Welcome to React': 'Welcome to React and react-i18next'
+      'Welcome to React': 'Welcome 1to React and react-i18next'
     }
   },
   fr: {
@@ -34,31 +34,37 @@ import { useTranslation } from 'react-i18next';
 let trans = '0000';
 function MyComponent() {
   const { t, i18n } = useTranslation();
-  // console.log('trans2',t('Welcome to React'))
+  console.log('tr33ans2', t('Welcome to React'));
   // trans = t('Welcome to React');
-  debugger;
+  // debugger;
 
-  return <h1>{t('Welcome to React')}</h1>;
+  return (
+    <h1>
+      {'abc 23'}
+      {/* {t('Welcome to React')} */}
+    </h1>
+  );
 }
 function updatetrans(arg) {
-  // console.log(arg, 'arg');
-  // trans = arg;
+  console.log(arg, 'arg');
+  trans = arg;
 }
-// console.log(trans);
+console.log('value3', trans);
 
-// export function new1() {
-//   return (
-//     <>
-//       <MyComponent updatetrans={this.updatetrans.bind(this)} />
-//     </>
-//   );
-// }
+export function new1() {
+  return (
+    <>
+      <MyComponent updatetrans={this.updatetrans.bind(this)} />
+    </>
+  );
+}
 export default function App() {
   return (
     <div>
       <h1>Hello StackBlitz!123</h1>
       <p>Start editing to see some magic happen :)</p>
       {/* <Res/> */}
+      <MyComponent updatetrans={updatetrans.bind(this)} />
     </div>
   );
 }
